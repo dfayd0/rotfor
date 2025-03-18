@@ -56,7 +56,7 @@ pub fn auto_decrypt(input: &str) -> String
     best_guess
 }
 
-fn text_to_1337(input: &str) -> String
+fn _text_to_1337(input: &str) -> String
 {
     input
         .chars()
@@ -74,7 +74,7 @@ fn text_to_1337(input: &str) -> String
         .collect()
 }
 
-fn l337_to_text(input: &str) -> String
+fn _l337_to_text(input: &str) -> String
 {
     input
         .chars()

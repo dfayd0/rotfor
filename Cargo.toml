@@ -1,14 +1,14 @@
 [package]
-name = "forot"
+name = "rotfor"
 version = "0.1.0"
 edition = "2024"
 
 [[bin]]
-name = "forot"
+name = "rotfor"
 path = "src/main.rs"
 
 [lib]
-name = "forot"
+name = "rotfor"
 path = "src/lib.rs"
 
 [dependencies]
