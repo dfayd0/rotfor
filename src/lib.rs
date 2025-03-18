@@ -148,17 +148,6 @@ mod tests
         assert_eq!(result, "toto".to_owned());
     }
 
-    fn generate_random_string() -> String
-    {
-        use rand::Rng;
-        let mut rng = rand::rng();
-        let length = rng.random_range(1..100);
-        let s: String = (0..length)
-            .map(|_| rng.random_range(b'a'..=b'z') as char)
-            .collect();
-        s
-    }
-
     #[test]
     fn encrypt_decrypt()
     {
@@ -168,4 +157,21 @@ mod tests
         let decrypted = decrypt(&encrypted, shift);
         assert_eq!(input, decrypted);
     }
+}
+
+pub fn generate_random_string() -> String
+{
+    use rand::Rng;
+    let mut rng = rand::rng();
+    let length = rng.random_range(1..100);
+    let s: String = (0..length)
+        .map(|_| rng.random_range(b'a'..=b'z') as char)
+        .collect();
+    s
+}
+pub fn generate_random_number() -> u8
+{
+    use rand::Rng;
+    let mut rng = rand::rng();
+    rng.random_range(1..100)
 }
