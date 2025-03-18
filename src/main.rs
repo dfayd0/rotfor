@@ -12,7 +12,7 @@ fn main()
 
     let guess_decrypted = forot::auto_decrypt(&encrypted);
 
-    println!("Input: {}", input);
+    println!("\nInput: {}", input);
     println!("Encrypted: {}", encrypted);
     println!("Decrypted: {}", decrypted);
     println!("Guess decrypted: {}", guess_decrypted);

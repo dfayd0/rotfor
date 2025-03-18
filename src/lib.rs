@@ -25,7 +25,7 @@ pub fn encrypt(
     shift: u8,
 ) -> String
 {
-    rotx(input, shift)
+    rotx(input, shift % 26)
 }
 
 pub fn decrypt(
@@ -33,18 +33,18 @@ pub fn decrypt(
     shift: u8,
 ) -> String
 {
-    rotx(input, 26 - shift)
+    rotx(input, 26 - (shift % 26))
 }
 
 pub fn auto_decrypt(input: &str) -> String
 {
     let mut possibilities = Vec::new();
 
-    println!("Trying to guess the origin of the input {{ {} }}", input);
+    println!("Trying to guess the origin of the input:\n{}", input);
 
     for i in 0..26 {
         let decrypted = decrypt(input, i);
-        println!("Shift {}: {}", i, decrypted);
+        // println!("Shift {}: {}", i, decrypted);
         possibilities.push(decrypted);
     }
 
