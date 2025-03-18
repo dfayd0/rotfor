@@ -56,6 +56,42 @@ pub fn auto_decrypt(input: &str) -> String
     best_guess
 }
 
+fn text_to_1337(input: &str) -> String
+{
+    input
+        .chars()
+        .map(|c| {
+            match c {
+                'a' => '4',
+                'e' => '3',
+                'l' => '1',
+                'o' => '0',
+                's' => '5',
+                't' => '7',
+                _ => c,
+            }
+        })
+        .collect()
+}
+
+fn l337_to_text(input: &str) -> String
+{
+    input
+        .chars()
+        .map(|c| {
+            match c {
+                '4' => 'a',
+                '3' => 'e',
+                '1' => 'l',
+                '0' => 'o',
+                '5' => 's',
+                '7' => 't',
+                _ => c,
+            }
+        })
+        .collect()
+}
+
 fn assign_probabilities(possibilities: &[String]) -> String
 {
     let mut scores: Vec<(String, f64)> = possibilities
