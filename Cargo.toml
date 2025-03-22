@@ -12,4 +12,5 @@ name = "rotfor"
 path = "src/lib.rs"
 
 [dependencies]
+clap = { version = "4.5.32", features = ["derive"] }
 rand = "0.9.0"

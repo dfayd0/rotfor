@@ -1,17 +1,11 @@
 use std::collections::HashMap;
 
-pub fn rotx(
-    input: &str,
-    x: u8,
-) -> String
+pub fn rotx(input: &str, x: u8) -> String
 {
     input.chars().map(|c| shift_char(c, x)).collect()
 }
 
-fn shift_char(
-    c: char,
-    x: u8,
-) -> char
+fn shift_char(c: char, x: u8) -> char
 {
     match c {
         'a'..='z' => ((c as u8 - b'a' + x) % 26 + b'a') as char,
@@ -20,18 +14,12 @@ fn shift_char(
     }
 }
 
-pub fn encrypt(
-    input: &str,
-    shift: u8,
-) -> String
+pub fn encrypt(input: &str, shift: u8) -> String
 {
     rotx(input, shift % 26)
 }
 
-pub fn decrypt(
-    input: &str,
-    shift: u8,
-) -> String
+pub fn decrypt(input: &str, shift: u8) -> String
 {
     rotx(input, 26 - (shift % 26))
 }
@@ -44,7 +32,6 @@ pub fn auto_decrypt(input: &str) -> String
 
     for i in 0..26 {
         let decrypted = decrypt(input, i);
-        // println!("Shift {}: {}", i, decrypted);
         possibilities.push(decrypted);
     }
 
@@ -52,7 +39,6 @@ pub fn auto_decrypt(input: &str) -> String
 
     let best_guess = assign_probabilities(&possibilities);
 
-    println!("Best guess: {}", best_guess);
     best_guess
 }
 
@@ -60,16 +46,14 @@ fn _text_to_1337(input: &str) -> String
 {
     input
         .chars()
-        .map(|c| {
-            match c {
-                'a' => '4',
-                'e' => '3',
-                'l' => '1',
-                'o' => '0',
-                's' => '5',
-                't' => '7',
-                _ => c,
-            }
+        .map(|c| match c {
+            'a' => '4',
+            'e' => '3',
+            'l' => '1',
+            'o' => '0',
+            's' => '5',
+            't' => '7',
+            _ => c,
         })
         .collect()
 }
@@ -78,16 +62,14 @@ fn _l337_to_text(input: &str) -> String
 {
     input
         .chars()
-        .map(|c| {
-            match c {
-                '4' => 'a',
-                '3' => 'e',
-                '1' => 'l',
-                '0' => 'o',
-                '5' => 's',
-                '7' => 't',
-                _ => c,
-            }
+        .map(|c| match c {
+            '4' => 'a',
+            '3' => 'e',
+            '1' => 'l',
+            '0' => 'o',
+            '5' => 's',
+            '7' => 't',
+            _ => c,
         })
         .collect()
 }
